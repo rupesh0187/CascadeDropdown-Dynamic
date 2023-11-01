@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewData["Title"] = "CascadeDropdown";
+}
+
+
+
+<h1>CascadeDropdown</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <form method="post">
+                <div class="form-group">
+                    <label><b>Country</b></label><br />
+                    <select class="form-cotrol" id="Country" name="Country">
+                        <option>----Select country----</option>
+                    </select>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label><b>State</b></label><br />
+                    <select class="form-cotrol" id="State" name="State">
+                        <option>----Select State----</option>
+                    </select>
+                </div>
+                <br />
+
+                <div class="form-group">
+                    <label><b>City</b></label><br />
+                    <select class="form-cotrol" id="City" name="City">
+                        <option>----Select City----</option>
+                    </select>
+                </div>
+                <br />
+                <div class="form-group">
+                    <button type="button" class="btn btn-sm btn-primary float-right " onclick="DropDown();">Save</button>
+
+                </div>
+            </form>
+            <br />
+            <br />
+            <div>
+            <table  id="tbl" class="table table-bordered-9 text-lg-center " border="1">
+            <thead >
+                <tr>
+                 <th>Country Name</th>
+                 <th>State Name</th>
+                 <th>City price</th>
+                </tr>
+            <thead>
+            <tbody>
+
+
+            </tbody>
+            </table>
+
+
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        function DropDown() {
+            let CountryName = document.getElementById("Country");
+            let stateName = document.getElementById("State");
+            let CityName = document.getElementById("City");
+
+
+            var countryText = CountryName.options[CountryName.selectedIndex].text;
+            var stateText = stateName.options[stateName.selectedIndex].text;
+            var cityText = CityName.options[CityName.selectedIndex].text;
+
+
+            let table = document.getElementById("tbl");
+            let newRow = table.insertRow(table.rows.length);
+
+            newRow.insertCell(0).innerHTML = countryText;
+            newRow.insertCell(1).innerHTML = stateText;
+            newRow.insertCell(2).innerHTML = cityText;
+
+        }
+    </script>
+
+    
+<a href="~/lib/jquery/dist/jquery.min.map"></a>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/cascade.js"></script>
